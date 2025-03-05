@@ -10,11 +10,10 @@ load_dotenv()
 
 app = Flask(__name__)
 # Enable CORS for all routes
-CORS(app, resources={r"/*": {"origins": ["http://localhost:3000",'https://symmetricitservicespvtltd.netlify.app/']}})
+CORS(app, resources={r"/*": {"origins": ["http://localhost:3000", "https://symmetricitservicespvtltd.netlify.app/"]}})
 
-# Initialize Firebase Admin
-cred = credentials.Certificate('ServiceAccountViewer.json')
-firebase_admin.initialize_app(cred)
+# Initialize Firebase Admin with application default credentials
+firebase_admin.initialize_app()
 
 # Get Firestore client
 db = firestore.client()
@@ -74,4 +73,5 @@ def get_stats():
 
 if __name__ == '__main__':
     print("Starting server")
-    app.run(debug=True, port=5001) 
+    port = int(os.environ.get('PORT', 5001))
+    app.run(host='0.0.0.0', port=port)
