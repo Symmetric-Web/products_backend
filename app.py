@@ -12,8 +12,14 @@ app = Flask(__name__)
 # Enable CORS for all routes
 CORS(app, resources={r"/*": {"origins": ["http://localhost:3000", "https://symmetricitservicespvtltd.netlify.app/"]}})
 
-# Initialize Firebase Admin with application default credentials
-firebase_admin.initialize_app()
+# Initialize Firebase Admin based on environment
+if os.getenv('ENVIRONMENT') == 'prod':
+    # Use default credentials in production
+    firebase_admin.initialize_app()
+else:
+    # Use service account file in development
+    cred = credentials.Certificate('../ServiceAccountViewer.json')
+    firebase_admin.initialize_app(cred)
 
 # Get Firestore client
 db = firestore.client()
