@@ -10,7 +10,7 @@ load_dotenv()
 
 app = Flask(__name__)
 # Enable CORS for all routes
-CORS(app, resources={r"/*": {"origins": ["http://localhost:3000", "https://symmetricitservicespvtltd.netlify.app/","https://symmetricitservicespvtltd.netlify.app/networking"]}})
+CORS(app, resources={r"/*": {"origins": ["http://localhost:3000", "https://symmetricitservicespvtltd.netlify.app"]}})
 
 # Initialize Firebase Admin based on environment
 if os.getenv('ENVIRONMENT') == 'prod':
