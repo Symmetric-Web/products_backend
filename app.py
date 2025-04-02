@@ -23,7 +23,6 @@ def get_data():
             result = json.load(filename)
         
         
-        print("success")
         return jsonify({
             'status': 'success',
             'data': result
