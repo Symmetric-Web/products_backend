@@ -18,8 +18,6 @@ def get_data():
         # Get product type from request body
         request_data = request.get_json()
         product_type = request_data.get('product_type')
-        with open(f"json/{product_type}.json", "w") as json_file:
-            json.dump(temp_data, json_file,indent=4)
         with open(f"json/{product_type}.json","r") as filename:
             result = json.load(filename)
         print("hi")
