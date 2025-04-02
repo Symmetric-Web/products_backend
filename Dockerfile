@@ -17,8 +17,6 @@ COPY . .
 EXPOSE 8080
 
 # Define environment variable
-ENV FLASK_APP=app.py
-ENV FLASK_ENV=production
 
 # Run app.py when the container launches
 CMD ["python", "app.py"]
