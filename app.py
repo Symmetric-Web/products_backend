@@ -9,7 +9,7 @@ load_dotenv()
 
 app = Flask(__name__)
 # Enable CORS for all routes
-CORS(app, resources={r"/*": {"origins": ["http://localhost:3000", "https://symmetricitservicespvtltd.netlify.app",'https://www.symmetricit.in/','https://symmetricit.in/']}})
+CORS(app, resources={r"/*": {"origins": ["http://localhost:3000", "https://symmetricitservicespvtltd.netlify.app",'https://www.symmetricit.in/','https://symmetricit.in/',"https://www.symmetricit.in","https://www.symmetricit.in/audio-visual"]}})
 
 
 @app.route('/get_products', methods=['POST'])
