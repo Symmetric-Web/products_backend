@@ -20,7 +20,7 @@ def get_data():
         product_type = request_data.get('product_type')
         with open(f"json_data/{product_type}.json","r") as filename:
             result = json.load(filename)
-        print("hi")
+        
         
         
         return jsonify({
