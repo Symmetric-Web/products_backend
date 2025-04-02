@@ -23,11 +23,11 @@ CORS(app, resources={r"/*": {
 
 @app.route('/get_products', methods=['POST'])
 def get_data():
-    print("Getting data")
     try:
         # Get product type from request body
         request_data = request.get_json()
         product_type = request_data.get('product_type')
+        print(f"getting results for {product_type}")
         with open(f"json_data/{product_type}.json","r") as filename:
             result = json.load(filename)
         
